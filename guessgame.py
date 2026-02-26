@@ -3,17 +3,18 @@ import random
 def numguess(): 
     guess = int(0)
     num = int(random.uniform(1,10))
-
+    guess_history = []
     while guess != num:
         guess = int(input("put your guess here "))
-        guess_history = []
-        guess_history.append(guess)
         if guess > num:
+            guess_history.append(guess)
             print("your guess is too big")
         if guess < num:
             print("your guess is too small")
+            guess_history.append(guess)
         if guess == num:
             print("your right")
-    for i in range(1, len(guess_history)):
-        print(guess_history)
+    print("incorrect guesses:")
+    for i in guess_history: 
+        print(i)  
 numguess()
